@@ -169,6 +169,7 @@ public:
             imuRotY[i] = 0;
             imuRotZ[i] = 0;
         }
+        columnIdnCountVec.assign(N_SCAN, 0);
     }
 
     ~ImageProjection(){}
