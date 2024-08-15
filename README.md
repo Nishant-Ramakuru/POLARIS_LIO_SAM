@@ -1,4 +1,4 @@
-# LIO-SAM
+# POLARIS_LIO_SAM
 
 **The tasks include integrating the LIO-SAM algorithm into the POLARIS_GEM_e2 simulation environment, generating a map, modifying the SLAM system to use pre-built maps for localization, and comparing the results with ground truth data from the simulation.**
 
@@ -95,12 +95,12 @@ Repeat these steps for each new terminal you open for the commands below.
 
 1. Source the required setup.bash
 ```
-source /home/ubuntu/lio_sam_localization_ws/devel/setup.bash
+source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 ```
 
 2. Run the mapping launch file:
 ```
-roslaunch lio_sam_localization run.launch config_file:="/home/ubuntu/lio_sam_localization_ws/src/LIO-SAM-Localization/config/params_gem.yaml"
+roslaunch polaris_lio_sam run.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/LIO-SAM-Localization/config/params_gem.yaml"
 ```
 
 3. To visualize against odom data, we need to publish transformation between world and map frame to get accurate comparison between ground truth odom data and estimated odom data: **OPTIONAL**
@@ -122,12 +122,12 @@ rosservice call /lio_sam/save_map 0.2 "/home/ubuntu/testVolume-1/<sample-map-dir
 
 1. Source the required setup.bash
 ```
-source /home/ubuntu/lio_sam_localization_ws/devel/setup.bash
+source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 ```
 
 2. Run the mapping launch file after editing *loadMapFileDir:="/home/ubuntu/testVolume-1/sample-map-dir-name/"* in params file:
 ```
-roslaunch lio_sam_localization run_loc.launch config_file:="/home/ubuntu/lio_sam_localization_ws/src/LIO-SAM-Localization/config/params_gem.yaml" 
+roslaunch polaris_lio_sam run_loc.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml" 
 ```
 3. To visualize against odom data, we need to publish transformation between world and map frame to get accurate comparison between ground truth odom data and estimated odom data: **OPTIONAL**
 ```
@@ -193,4 +193,4 @@ Most of the code is adapted from [LIO-SAM (IROS-2020)](./config/doc/paper.pdf) [
 
 ## Acknowledgement
 
-  - LIO-SAM-Localization is based on LIO-SAM (Tixiao Shan, Brendan Englot, Drew Meyers, Wei Wang, Carlo Ratti, and Daniela Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).
+  - LIO-SAM is based on LOAM (Tixiao Shan, Brendan Englot, Drew Meyers, Wei Wang, Carlo Ratti, and Daniela Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).
