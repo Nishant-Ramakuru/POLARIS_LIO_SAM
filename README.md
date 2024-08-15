@@ -1,6 +1,14 @@
 # LIO-SAM
 
-**A real-time lidar-inertial odometry package. We strongly recommend the users read this document thoroughly and test the package with the provided dataset first. A video of the demonstration of the method can be found on [YouTube](https://www.youtube.com/watch?v=A0H8CoORZJU).**
+**The tasks include integrating the LIO-SAM algorithm into the POLARIS_GEM_e2 simulation environment, generating a map, modifying the SLAM system to use pre-built maps for localization, and comparing the results with ground truth data from the simulation.**
+
+Key Objectives:
+
+    1. Integrate LIO-SAM into the Simulation: Adapt the LIO-SAM SLAM algorithm for use in the POLARIS_GEM_e2 simulator.
+    2. Map Creation: Generate a detailed map of the simulation environment using LIO-SAM.
+    3. Map-Based Localization: Modify LIO-SAM to use the pre-built map for real-time localization, including implementing data structures like KD-trees for efficient scan matching.
+    4. Performance Comparison: Evaluate the modified SLAM system by comparing its localization results with the ground truth data from the simulation.
+    5. ROS Package and Dockerfile Preparation: Package the simulation and localization system into a ROS package and Dockerfile, ensuring all dependencies are properly configured for easy setup.
 
 <p align='center'>
     <img src="./config/doc/demo.gif" alt="drawing" width="800"/>
