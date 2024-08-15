@@ -4,7 +4,7 @@
 
 Key Objectives:
 
-    1. Integrate LIO-SAM into the Simulation: Adapt the LIO-SAM SLAM algorithm for use in the POLARIS_GEM_e2 simulator.
+Integrate LIO-SAM into the Simulation: Adapt the LIO-SAM SLAM algorithm for use in the POLARIS_GEM_e2 simulator.
     2. Map Creation: Generate a detailed map of the simulation environment using LIO-SAM.
     3. Map-Based Localization: Modify LIO-SAM to use the pre-built map for real-time localization, including implementing data structures like KD-trees for efficient scan matching.
     4. Performance Comparison: Evaluate the modified SLAM system by comparing its localization results with the ground truth data from the simulation.
