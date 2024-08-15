@@ -100,7 +100,7 @@ source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 
 2. Run the mapping launch file:
 ```
-roslaunch polaris_lio_sam run.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/LIO-SAM-Localization/config/params_gem.yaml"
+roslaunch polaris_lio_sam run.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml"
 ```
 
 3. To visualize against odom data, we need to publish transformation between world and map frame to get accurate comparison between ground truth odom data and estimated odom data: **OPTIONAL**
