@@ -10,16 +10,7 @@ Key Objectives:
     4. Performance Comparison: Evaluate the modified SLAM system by comparing its localization results with the ground truth data from the simulation.
     5. ROS Package and Dockerfile Preparation: Package the simulation and localization system into a ROS package and Dockerfile, ensuring all dependencies are properly configured for easy setup.
 
-<p align='center'>
-    <img src="./config/doc/demo.gif" alt="drawing" width="800"/>
-</p>
 
-<p align='center'>
-    <img src="./config/doc/device-hand-2.png" alt="drawing" width="200"/>
-    <img src="./config/doc/device-hand.png" alt="drawing" width="200"/>
-    <img src="./config/doc/device-jackal.png" alt="drawing" width="200"/>
-    <img src="./config/doc/device-livox-horizon.png" alt="drawing" width="200"/>
-</p>
 
 ## Menu
 
