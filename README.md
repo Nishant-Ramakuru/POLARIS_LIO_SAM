@@ -33,9 +33,9 @@ Use the following commands to download and compile the package.
 
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/harshalkataria/LIO-SAM-Localization.git
+git clone https://github.com/Nishant-Ramakuru/POLARIS_LIO_SAM.git
 cd ..
-catkin_make -j2
+catkin_make
 ```
 
 ## Using Docker
