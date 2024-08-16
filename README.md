@@ -40,6 +40,7 @@ This is the original ROS1 implementation of LIO-SAM.
 Use the following commands to download and compile the package.
 
 ```
+mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 git clone https://github.com/Nishant-Ramakuru/POLARIS_LIO_SAM.git
 cd ..
