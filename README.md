@@ -43,9 +43,12 @@ Use the following commands to download and compile the package.
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 git clone https://github.com/Nishant-Ramakuru/POLARIS_LIO_SAM.git
-
+```
 ## Build
 
+Source ROS(Noetic) and build
+
+```
 source /opt/ros/noetic/setup.bash
 cd ~/catkin_ws
 catkin_make
