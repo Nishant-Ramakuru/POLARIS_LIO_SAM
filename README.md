@@ -141,7 +141,7 @@ roslaunch polaris_lio_sam run_loc.launch config_file:="/home/ubuntu/polaris_lio_
 3. Publish transformation between world and map frame
 ```
 rosrun tf2_ros static_transform_publisher 22.5 -1.0 0.0 0.0 0.0 0.0 1.0 world map
-
+```
 4. Run bag files:
 ```
 rosbag play /home/ubuntu/data/highbay_track.bag --start 115
