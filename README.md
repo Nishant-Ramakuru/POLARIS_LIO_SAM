@@ -56,112 +56,103 @@ docker run -dt --name gem-lio-noetic-1 \
   -v /path/to/datasets-folder/data:/home/ubuntu/data \
   gem-lio-noetic-image /bin/bash
 ```
-## Sample datasets, maps and video Setup
-
-  * Download some sample datasets and maps to test the functionality of the package:
-    - **highway dataset:** [[Google Drive](https://drive.google.com/file/d/1cZjXGGRp57_Kic1d46NL9fA3iOlQMDyf/view?usp=sharing)]
-    - **map with non-zero intensity:** [[Google Drive](https://drive.google.com/file/d/1hB_dSDCnRh3XYZAdwvpYNu1jc0viFDQ8/view?usp=sharing)]
-    - **map with zero intensity:** [[Google Drive](https://drive.google.com/file/d/1H58qwIM2rJ6tREVQbDYd1oZtVaPaNSzY/view?usp=sharing)]
-    - **sample mapping video:** [[Google Drive](https://drive.google.com/file/d/1UjE75DK_xf0YKJPGWW3-y9KRIot-oCfA/view?usp=sharing)]
+## Datasets
   
-  * Setup the sample dataset and map in testVolume-1
-    1. Download and extract the [highway-dataset-bagFile](https://drive.google.com/file/d/1cZjXGGRp57_Kic1d46NL9fA3iOlQMDyf/view?usp=sharing)
-    2. Copy to the **testVolume-1** folder
-    3. Download and extract [[map-with-non-zero-intensity](https://drive.google.com/file/d/1hB_dSDCnRh3XYZAdwvpYNu1jc0viFDQ8/view?usp=sharing)]
-    4. Copy the map folder into **testVolume-1** folder
-
+  * Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=drive_link)
+    
 ## Run the packages inside the docker container with bag files
 
 * ### Setup terminal
 
-1. On a new terminal give display access to docker:
+* Setup should be executed for every instance of a new terminal window
+
+1. Docker Access:
 ```
 xhost +local:docker
 ```
 
-2. Start the container if it is stopped:
+2. Initiate the container:
 ```
 docker start gem-lio-noetic-1
 ```
 
-3. Get interactive shell access to run commands inside docker container:
+3. Access docker container:
 ```
 docker exec -it gem-lio-noetic-1 bash
 ```
 
-Repeat these steps for each new terminal you open for the commands below.
 
-* ### To create a map using bag file
+* ### Generate map
 
-1. Source the required setup.bash
+1. Source setup file
 ```
 source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 ```
 
-2. Run the mapping launch file:
+2. Mapping:
 ```
 roslaunch polaris_lio_sam run.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml"
 ```
 
-3. To visualize against odom data, we need to publish transformation between world and map frame to get accurate comparison between ground truth odom data and estimated odom data: **OPTIONAL**
+3. Publish transformation between world and map frame
 ```
 rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336 -0.10003287520306003 3.526007880438855e-07 1.0449289132344871e-05 -0.006435430963485527 0.9999792923450977 world map
 ```
 
-4. Play existing bag files:
+4. Run bag files:
 ```
 rosbag play /home/ubuntu/data/highbay_track.bag --start 115
 ```
 
-5. Once the bag file ends, save the map:
+5. Save the map:
 ```
 rosservice call /lio_sam/save_map 0.2 "/home/ubuntu/data/maps/"
 ```
 
-* ### To run localization on pre-built map using bag file
+* ### Modify Params
+1. Edit config file
+```
+gedit "/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml" 
+```
+  Editing *loadMapFileDir:="/home/ubuntu/data/<dir-name-given>/"*
+
+* ### Localization on pre-built map
 
 1. Source the required setup.bash
 ```
 source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 ```
 
-2. Run the mapping launch file after editing *loadMapFileDir:="/home/ubuntu/testVolume-1/sample-map-dir-name/"* in params file:
+2. Run the mapping launch file 
 ```
 roslaunch polaris_lio_sam run_loc.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml" 
 ```
-3. To visualize against odom data, we need to publish transformation between world and map frame to get accurate comparison between ground truth odom data and estimated odom data: **OPTIONAL**
+3. Publish transformation between world and map frame
 ```
 rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336 -0.10003287520306003 3.526007880438855e-07 1.0449289132344871e-05 -0.006435430963485527 0.9999792923450977 world map
 ```
 
-4. Play existing bag files:
+4. Run bag files:
 ```
 rosbag play /home/ubuntu/data/highbay_track.bag --start 115
 ```
 
-### Voila! the robot is localizing itself in known environment
-
-Please note that the transformation between world and map frame needs to be initialized by user for now. (This will be improved in future)
-
-## Run the Gazebo simulation of gem robot
-1. In a new terminal source the required setup.bash
+## Polaris simulation
+1. Source setup.bash
 ```
 source /home/ubuntu/gem_ws/devel/setup.bash
 ```
 
-2. You can edit the gem.gazebo file to change the **update_rate** of the **imu** or **params** for **velodyne** in **gem.urdf.xacro** and see impact on performance. **OPTIONAL**
-
-3. Run the gem_gazebo_rviz launch file:
+3. Launch Polaris simulation:
 ```
 roslaunch gem_gazebo gem_gazebo_rviz.launch world_name:=./worlds/highbay_track.world x:=0 y:=0 velodyne_points:="true"
 ```
 
-4. Transformation to be published between velodyne and gem/velodyne frame to complete the tf_tree so that we can visualize on rviz
+4. Published transformation between velodyne and gem/velodyne frame
 ```
 rosrun tf2_ros static_transform_publisher 0 0 0 0 0 0 /velodyne gem/velodyne
 ```
 
-Please note that while running with gem_gazebo, we need to take care not to be stationary for too long after starting mapping, or else we will see drifts.
 ## Service
   - /lio_sam/save_map
     - save map as a PCD file.
@@ -173,9 +164,6 @@ Please note that while running with gem_gazebo, we need to take care not to be s
         $ rosservice call /lio_sam/save_map 0.2 "/Downloads/LOAM/"
       ```
 
-## Issues
-
-  - **Zigzag or jerking behavior in Localization**: If initial position while running localization is not near origin, then relocalization does not work well , resulting in zigzag jumps and Large Velocity error.
 
 ## Paper
 
