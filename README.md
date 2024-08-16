@@ -11,10 +11,10 @@ Key Objectives:
 5. Package the simulation and localization system into a ROS package and Dockerfile, ensuring all dependencies are properly configured for easy setup.
 
 <p align='center'>
-    <img src="./config/doc/SS1.png" alt="drawing" width="200"/>
-    <img src="./config/doc/SS2.png" alt="drawing" width="200"/>
-    <img src="./config/doc/SS3.png" alt="drawing" width="200"/>
-    <img src="./config/doc/SS4.png" alt="drawing" width="200"/>
+    <img src="./config/doc/SS1.png" alt="drawing" width="500"/>
+    <img src="./config/doc/SS2.png" alt="drawing" width="500"/>
+    <img src="./config/doc/SS3.png" alt="drawing" width="500"/>
+    <img src="./config/doc/SS4.png" alt="drawing" width="500"/>
 </p>
 
 Most of the code base is taken from [POLARIS GEM E2](https://gitlab.engr.illinois.edu/gemillins/POLARIS_GEM_e2) & [LIO_SAM](https://github.com/TixiaoShan/LIO-SAM)
