@@ -1,8 +1,8 @@
 <launch>
 
-    <arg name="project" default="lio_sam_localization"/>
+    <arg name="project" default="polaris_lio_sam"/>
 
     <!--- Run Rviz-->
-    <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find lio_sam_localization)/launch/include/config/rviz_loc.rviz" />
+    <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find polaris_lio_sam)/launch/include/config/rviz_loc.rviz" />
 
 </launch>
