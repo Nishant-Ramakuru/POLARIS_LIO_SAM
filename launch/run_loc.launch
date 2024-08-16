@@ -1,7 +1,7 @@
 <launch>
 
-    <arg name="project" default="lio_sam_localization"/>
-    <arg name="config_file" default="$(find lio_sam_localization)/config/params.yaml"/>
+    <arg name="project" default="polaris_lio_sam"/>
+    <arg name="config_file" default="$(find polaris_lio_sam)/config/params.yaml"/>
     
     <!-- Parameters -->
     <rosparam file="$(arg config_file)" command="load" />
