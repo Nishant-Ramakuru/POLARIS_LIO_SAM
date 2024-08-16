@@ -97,9 +97,10 @@ docker exec -it gem-lio-noetic-1 bash
 * ## Datasets
   
   Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=sharing)
+  Example:
   
     ```
-    docker cp /home/user-name/Downloads my_container:/home/ubuntu/data/
+    docker cp /home/user-name/Downloads/highbay_track.bag  gem-lio-noetic-1:/home/ubuntu/data/
     ```
 
 * ### Generate map
