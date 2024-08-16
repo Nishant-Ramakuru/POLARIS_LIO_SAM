@@ -70,7 +70,7 @@ docker run -dt --name gem-lio-noetic-1 \
 
 * ### Setup terminal
 
-* Setup should be executed for every instance of a new terminal window
+  Setup should be executed for every instance of a new terminal window
 
 1. Docker Access:
 ```
