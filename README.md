@@ -64,9 +64,7 @@ docker run -dt --name gem-lio-noetic-1 \
   -v /path/to/datasets-folder/data:/home/ubuntu/data \
   gem-lio-noetic-image /bin/bash
 ```
-## Datasets
-  
-  * Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=drive_link)
+
     
 ## Run the packages inside the docker container with bag files
 
@@ -88,7 +86,12 @@ docker start gem-lio-noetic-1
 ```
 docker exec -it gem-lio-noetic-1 bash
 ```
-
+## Datasets
+  
+  * Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=drive_link)
+    ```
+    docker cp /home/user-name/Downloads my_container:/home/ubuntu/data/
+    ```
 
 * ### Generate map
 
