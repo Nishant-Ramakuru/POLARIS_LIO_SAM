@@ -53,7 +53,7 @@ docker run -dt --name gem-lio-noetic-1 \
   -v /etc/localtime:/etc/localtime:ro \
   -v /etc/timezone:/etc/timezone:ro \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v /path/to/datasets-folder/testVolume-1:/home/ubuntu/testVolume-1 \
+  -v /path/to/datasets-folder/data:/home/ubuntu/data \
   gem-lio-noetic-image /bin/bash
 ```
 ## Sample datasets, maps and video Setup
@@ -110,12 +110,12 @@ rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336
 
 4. Play existing bag files:
 ```
-rosbag play /home/ubuntu/testVolume-1/highbay_track-5-minutes-highres_2024-05-20-13-53-11.bag --start 115
+rosbag play /home/ubuntu/data/highbay_track.bag --start 115
 ```
 
 5. Once the bag file ends, save the map:
 ```
-rosservice call /lio_sam/save_map 0.2 "/home/ubuntu/testVolume-1/<sample-map-dir-name>/"
+rosservice call /lio_sam/save_map 0.2 "/home/ubuntu/data/maps/"
 ```
 
 * ### To run localization on pre-built map using bag file
@@ -136,7 +136,7 @@ rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336
 
 4. Play existing bag files:
 ```
-rosbag play /home/ubuntu/testVolume-1/highbay_track-5-minutes-highres_2024-05-20-13-53-11.bag --start 115
+rosbag play /home/ubuntu/data/highbay_track.bag --start 115
 ```
 
 ### Voila! the robot is localizing itself in known environment
