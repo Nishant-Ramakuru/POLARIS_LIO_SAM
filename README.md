@@ -164,7 +164,7 @@ roslaunch gem_gazebo gem_gazebo_rviz.launch world_name:=./worlds/highbay_track.w
 rosrun tf2_ros static_transform_publisher 0 0 0 0 0 0 /velodyne gem/velodyne
 ```
 
-* ## Simulation
+## Simulation
   
   [Video](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=sharing)
   
