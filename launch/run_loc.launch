@@ -7,15 +7,15 @@
     <rosparam file="$(arg config_file)" command="load" />
 
     <!--- LOAM -->
-    <include file="$(find lio_sam_localization)/launch/include/module_loam_loc.launch" />
+    <include file="$(find polaris_lio_sam)/launch/include/module_loam_loc.launch" />
 
     <!--- Robot State TF -->
-    <include file="$(find lio_sam_localization)/launch/include/module_robot_state_publisher.launch" />
+    <include file="$(find polaris_lio_sam)/launch/include/module_robot_state_publisher.launch" />
 
     <!--- Run Navsat -->
-    <!-- <include file="$(find lio_sam_localization)/launch/include/module_navsat.launch" /> -->
+    <!-- <include file="$(find polaris_lio_sam)/launch/include/module_navsat.launch" /> -->
 
     <!--- Run Rviz-->
-    <include file="$(find lio_sam_localization)/launch/include/module_rviz_loc.launch" />
+    <include file="$(find polaris_lio_sam)/launch/include/module_rviz_loc.launch" />
 
 </launch>
