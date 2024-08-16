@@ -88,7 +88,9 @@ docker exec -it gem-lio-noetic-1 bash
 ```
 * ## Datasets
   
-  * Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=drive_link)
+  * Download the data and copy it inside the data folder in the container. [dataset](https://drive.google.com/drive/folders/1jkLbEMqNMFf54G64oEmlZuGM7DaNc-KV?usp=sharing)
+ 
+  * 
     ```
     docker cp /home/user-name/Downloads my_container:/home/ubuntu/data/
     ```
