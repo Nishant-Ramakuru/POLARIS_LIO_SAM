@@ -105,9 +105,9 @@ source /home/ubuntu/polaris_lio_sam_ws/devel/setup.bash
 roslaunch polaris_lio_sam run.launch config_file:="/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml"
 ```
 
-3. Publish transformation between world and map frame
+3. Publish translational transformation between world and map frame
 ```
-rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336 -0.10003287520306003 3.526007880438855e-07 1.0449289132344871e-05 -0.006435430963485527 0.9999792923450977 world map
+rosrun tf2_ros static_transform_publisher 22.5 -1.0 0.0 0.0 0.0 0.0 1.0 world map
 ```
 
 4. Run bag files:
@@ -140,8 +140,7 @@ roslaunch polaris_lio_sam run_loc.launch config_file:="/home/ubuntu/polaris_lio_
 ```
 3. Publish transformation between world and map frame
 ```
-rosrun tf2_ros static_transform_publisher 22.748378703042732 -1.1095682571420336 -0.10003287520306003 3.526007880438855e-07 1.0449289132344871e-05 -0.006435430963485527 0.9999792923450977 world map
-```
+rosrun tf2_ros static_transform_publisher 22.5 -1.0 0.0 0.0 0.0 0.0 1.0 world map
 
 4. Run bag files:
 ```
