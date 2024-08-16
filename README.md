@@ -10,6 +10,14 @@ Key Objectives:
 4. Evaluate the modified SLAM system by comparing its localization results with the ground truth data from the simulation.
 5. Package the simulation and localization system into a ROS package and Dockerfile, ensuring all dependencies are properly configured for easy setup.
 
+<p align='center'>
+    <img src="./config/doc/device-hand-2.png" alt="drawing" width="200"/>
+    <img src="./config/doc/device-hand.png" alt="drawing" width="200"/>
+    <img src="./config/doc/device-jackal.png" alt="drawing" width="200"/>
+    <img src="./config/doc/device-livox-horizon.png" alt="drawing" width="200"/>
+</p>
+
+Most of the code base is taken from [POLARIS GEM E2](https://gitlab.engr.illinois.edu/gemillins/POLARIS_GEM_e2) & [LIO_SAM](https://github.com/TixiaoShan/LIO-SAM)
 
 ## Dependency
 
@@ -110,11 +118,11 @@ rosservice call /lio_sam/save_map 0.2 "/home/ubuntu/data/maps/"
 ```
 
 * ### Modify Params
-1. Edit config file
+1. Edit config file *loadMapFileDir:="/home/ubuntu/data/<dir-name-given>/"*
 ```
 gedit "/home/ubuntu/polaris_lio_sam_ws/src/POLARIS_LIO_SAM/config/params_gem.yaml" 
 ```
-  Editing *loadMapFileDir:="/home/ubuntu/data/<dir-name-given>/"*
+  
 
 * ### Localization on pre-built map
 
@@ -152,33 +160,3 @@ roslaunch gem_gazebo gem_gazebo_rviz.launch world_name:=./worlds/highbay_track.w
 ```
 rosrun tf2_ros static_transform_publisher 0 0 0 0 0 0 /velodyne gem/velodyne
 ```
-
-## Service
-  - /lio_sam/save_map
-    - save map as a PCD file.
-      ``` bash
-        rosservice call [service] [resolution] [destination]
-      ```
-      - Example:
-      ``` bash
-        $ rosservice call /lio_sam/save_map 0.2 "/Downloads/LOAM/"
-      ```
-
-
-## Paper
-
-Most of the code is adapted from [LIO-SAM (IROS-2020)](./config/doc/paper.pdf) [Github Repo](https://github.com/TixiaoShan/LIO-SAM).
-```
-@inproceedings{liosam2020shan,
-  title={LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping},
-  author={Shan, Tixiao and Englot, Brendan and Meyers, Drew and Wang, Wei and Ratti, Carlo and Rus Daniela},
-  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  pages={5135-5142},
-  year={2020},
-  organization={IEEE}
-}
-```
-
-## Acknowledgement
-
-  - LIO-SAM is based on LOAM (Tixiao Shan, Brendan Englot, Drew Meyers, Wei Wang, Carlo Ratti, and Daniela Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).
